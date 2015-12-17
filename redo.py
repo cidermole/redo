@@ -16,6 +16,7 @@ debug-locks  print messages about file locking (useful for debugging)
 debug-pids   print process ids as part of log messages (useful for debugging)
 version    print the current version and exit
 old-args   use old-style definitions of $1,$2,$3 (deprecated)
+t,target-only  only build the target without regard for its dependencies
 """
 o = options.Options(optspec)
 (opt, flags, extra) = o.parse(sys.argv[1:])
@@ -42,6 +43,8 @@ if opt.debug_pids:
     os.environ['REDO_DEBUG_PIDS'] = '1'
 if opt.old_args:
     os.environ['REDO_OLD_ARGS'] = '1'
+if opt.target_only:
+    os.environ['REDO_TARGET_ONLY'] = '1'
 
 import vars_init
 vars_init.init(targets)

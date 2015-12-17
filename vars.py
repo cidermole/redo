@@ -9,6 +9,7 @@ if not os.environ.get('REDO'):
 
 PWD = os.environ.get('REDO_PWD', '')
 TARGET = os.environ.get('REDO_TARGET', '')
+TARGET_ONLY = os.environ.get('REDO_TARGET_ONLY', '') and 1 or 0
 DEPTH = os.environ.get('REDO_DEPTH', '')
 DEBUG = atoi(os.environ.get('REDO_DEBUG', ''))
 DEBUG_LOCKS = os.environ.get('REDO_DEBUG_LOCKS', '') and 1 or 0

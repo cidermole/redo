@@ -15,7 +15,6 @@ def should_build(t):
     dirty = deps.isdirty(f, depth = '', max_changed = vars.RUNID)
     return dirty==[f] and deps.DIRTY or dirty
 
-
 rv = 202
 try:
     if vars.TARGET and not vars.UNLOCKED:
@@ -27,7 +26,7 @@ try:
         f = me = None
         debug2('redo-ifchange: not adding depends.\n')
     try:
-        targets = sys.argv[1:]
+        targets = sys.argv[1:] if not vars.TARGET_ONLY else []
         if f:
             for t in targets:
                 f.add_dep('m', t)
